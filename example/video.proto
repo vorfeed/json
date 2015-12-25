@@ -1,0 +1,197 @@
+package json;
+
+message People {
+  optional int64 id = 1;
+  optional string name = 2;
+  repeated string character = 3;
+}
+
+message ParentInfo {
+  optional int64 id = 1;
+  optional string name = 2;
+  optional string picture_url = 3;
+  optional string page_url = 4;
+  optional double sns_score = 5;
+  optional double pps_wiki_score = 6;
+}
+
+message ChildInfo {
+  optional int64 id = 1;
+  optional int32 is_member_only = 2;
+  optional int32 purchase_type = 3;
+}
+
+message Topic {
+  optional int64 id = 1;
+}
+
+message TagFeature {
+  optional string tag_value = 1;
+  optional int32 weight = 2;
+  optional int32 level = 3;
+}
+
+message DetailedTag {
+  optional string tag_type = 1;
+  repeated string tag_values = 2;
+  repeated TagFeature tag_features = 3;
+}
+
+message Slide {
+  optional string slide_url = 1;
+  optional string platform = 2;
+  optional int32 order = 3;
+  optional string page_url = 4;
+  optional int64 slide_final_time = 5;
+}
+
+message PlayLocation {
+  optional int32 play_platform = 1;
+  optional bool is_whitelist = 2;
+  repeated int32 continent = 3;
+  repeated int32 country = 4;
+  repeated int32 province = 5;
+  repeated int32 city = 6;
+  repeated int32 county= 7;
+  repeated int32 area = 8;
+}
+
+enum FilmVarietyType {
+  INTERVIEW = 1;
+}
+
+message DisplayFields {
+  optional int64 album_id = 1;
+  optional int64 tv_id = 2;
+  optional string vid = 3;
+  optional string short_title = 4;
+  optional string source_name = 5;
+  optional string page_url = 6;
+  optional string picture_url = 7;
+  optional int32 total_episode_num = 8;
+  optional string global_publish_date = 9;
+  optional string prompt_description = 10;
+  optional int32 is_member_only = 11;
+  optional int32 is_download_allowed = 12;
+  optional int32 is_exclusive = 13;
+  optional string sub_title = 14;
+  repeated string type = 15;
+  optional int32 episode_order = 16;
+  optional int32 format_property = 17;
+  optional int64 qipu_id = 18;
+  optional int64 display_play_count = 19;
+  optional int64 play_count = 20;
+  optional int64 comments_count = 21;
+  optional int64 up_count = 22;
+  optional int64 down_count = 23;
+  optional string latest_episode = 24;
+  optional string pps_p2p_url = 25;
+  optional string poster_url = 26;
+  optional int32 purchase_type = 27;
+  optional string id_url_hashcode = 28;
+  optional int32 season = 29;
+  optional int32 phase = 30;
+  optional int64 latest_episode_id = 31;
+  optional int32 is_boss_mixer = 32;
+}
+
+message Video {
+  optional int64 id = 1;
+  optional string name = 2;
+  optional string description = 3;
+  optional int64 pps_id = 4;
+  optional int32 channel_id = 5;
+  repeated int64 multi_publish = 6;
+  optional int64 uploader_id = 7;
+  optional int64 final_time = 8;
+  optional int32 time_duration = 9;
+  optional int32 allowed_platform = 10;
+  optional bool is_domestic_only = 11;
+  optional string signature = 12;
+  optional float quality_score = 13;
+  optional bool is_valid = 14;
+
+  enum RatingType {
+    GENERAL = 0;
+    CHILD_PROTECTED = 1;
+    PARENT_GUIDED = 2;
+    MATURE = 3;
+  }
+  optional RatingType rating = 15;
+
+  enum DangerLevel {
+    SAFE = 0;
+    DANGEROUS_HIGH = 1;
+    DANGEROUS_MIDDLE = 2;
+    DANGEROUS_LOW = 3;
+  }
+  optional DangerLevel danger_level = 16;
+
+  enum EditorRecommendLevel {
+    NONE = 0;
+    GENERAL_REC = 1;
+    KEY = 2;
+    STRONG = 3;
+  }
+  optional EditorRecommendLevel editor_recommend_level = 17;
+  
+  repeated string tags = 18;
+  repeated string canonical_keyword = 19;
+  repeated string keyword = 20;
+
+  enum ContentType {
+    FEATURE_FILM = 1;
+    PREVUE = 2;
+    TRAILER = 3;
+    CLIP = 4;
+    OTHER = 5;
+  }
+  optional ContentType content_type = 21;
+
+  enum FeatureFilmType {
+    MOVIE = 0;
+    TV = 1;
+  }
+  optional FeatureFilmType feature_film_type = 22;
+
+  repeated string location = 23;
+  repeated People creator = 24;
+  repeated People main_contributor = 25;
+  repeated People support_contributor = 26;
+  repeated ParentInfo parent_video_group = 27;
+  optional ParentInfo parent_album = 28;
+  repeated ParentInfo parent_collection = 29;
+  repeated ParentInfo parent_official_episode = 30;
+  repeated ChildInfo children_episode = 31;
+  repeated ChildInfo children_prevue = 32;
+  repeated ChildInfo children_trailer = 33;
+  repeated ChildInfo children_titbit = 34;
+  optional DisplayFields display_fields = 35;
+  optional int64 douban_id = 36;
+  optional int32 allowed_platform_1 = 37;
+  repeated Slide slides = 38;
+  repeated string user_tags = 39;
+  repeated string political_sensitive_words = 40;
+  repeated string custom_tags = 41;
+  optional bool is_available_for_qiyihomepage = 42;
+  repeated string site_name = 43;
+  optional bool is_latest_episode = 44;
+  optional bool is_qiyi_produced = 45;
+  repeated DetailedTag detailed_tags = 46;
+  optional string song_name = 47;
+  optional double douban_score = 48;
+  repeated ChildInfo children_clip = 49;
+  repeated People screen_writer = 50;
+  optional bool is_available_for_channel_homepage = 51;
+  repeated Topic topics = 52;
+  optional bool is_online = 53;
+  optional int64 play_platform = 54;
+  repeated PlayLocation play_location = 55;
+  optional int32 rc_order = 56;
+  repeated string operating_tags = 57;
+  optional string play_source_id = 58;
+  optional FilmVarietyType film_variety_type = 59;
+  optional double sns_score = 60;
+  optional double pps_wiki_score = 61;
+  optional int64 original_id = 62;
+}
